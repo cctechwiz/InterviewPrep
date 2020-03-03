@@ -7,7 +7,7 @@ def count_odds(character_counts):
 
     for n in character_counts.values():
         if is_odd(n):
-            odds = odds + 1
+            odds += 1
 
     return odds
 
@@ -22,6 +22,9 @@ def count_characters(word):
 
 
 def is_scrambled_palindrome(word):
+    if '' == word:
+        return False
+
     character_counts = count_characters(word)
     odds = count_odds(character_counts)
 
@@ -32,7 +35,7 @@ def is_scrambled_palindrome(word):
 if __name__ == '__main__':
     print('Is Scrambled Palindrome\n')
 
-    words = ['racecar', 'torro', 'test', 'aajjddttiieed', 't', 'ttt']
+    words = ['racecar', 'torro', 'test', 'aajjddttiieed', 't', 'ttt', '']
 
     for word in words:
         if is_scrambled_palindrome(word):
